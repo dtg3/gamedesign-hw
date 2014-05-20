@@ -6,7 +6,6 @@ void setup() {
 }
 
 void draw() {
-  
 }
 
 void mousePressed() {
@@ -14,6 +13,12 @@ void mousePressed() {
 }
 
 void keyPressed() {
-  
+
+  // Check for special keys (UP, DOWN, etc.)
+  if (key == CODED) {
+  }
+  // Regular keys
+  else {
+  }
 }
 
