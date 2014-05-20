@@ -25,7 +25,7 @@ boolean loadQuestion;
 void setup() {
   size(800, 600);
   importer = new FileImporter();
-  background = loadImage("bg.jpg");
+  background = loadImage("bgf.jpg");
   state = START;
   sun = loadShape("sun.svg");
   loadQuestion = false;
