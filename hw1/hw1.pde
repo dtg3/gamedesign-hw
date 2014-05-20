@@ -16,6 +16,7 @@ final PFont CHOICES_BOLD_FONT = createFont("OpenSans-Bold", 42, true);
 PImage background;
 PFont font;
 int state;
+PShape sun;
 FileImporter importer; // holds questions
 Question question;
 
@@ -24,6 +25,7 @@ void setup() {
   importer = new FileImporter();
   background = loadImage("bg.jpg");
   state = START;
+  sun = loadShape("sun.svg");
 }
 
 void draw() {
@@ -32,8 +34,9 @@ void draw() {
     //title screen
     textFont(TITLE_FONT);       
     textAlign(CENTER);
-    text("Epic Happy Funtime Quiz!",width/2,60);
+    text("Epic Happy Funtime Quiz!",width/2,100);
     fill(255);
+    shape(sun, width/2-300, height/2-325);
   }
   else if (state == QUESTION) {
     // write question
