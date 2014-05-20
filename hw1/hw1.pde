@@ -19,7 +19,7 @@ int state;
 PShape sun;
 FileImporter importer; // holds questions
 Question question;
-//ArrayList<int> choicePos;
+ArrayList<Integer> choicePos;
 boolean loadQuestion;
 
 void setup() {
@@ -50,8 +50,9 @@ void draw() {
     fill(255);
     
     // write choices       
-    if (loadQuestion){}
-      //choicePos = new ArrayList<int>();
+    if (loadQuestion)
+      choicePos = new ArrayList<Integer>();
+      
     int yPos = 90;
     char select = 'A';
     for (int i = 0; i < question.choices.size(); ++i) {
@@ -68,8 +69,8 @@ void draw() {
       }
       text(select++ + ".)" + "   " + question.choices.get(i), 60, yPos);
       
-      if (loadQuestion){}
-        //choicePos.add(yPos);
+      if (loadQuestion)
+        choicePos.add(yPos);
     }
     loadQuestion = false;
   }
@@ -91,7 +92,14 @@ void draw() {
 }
 
 void mousePressed() {
-  println("Mouse at: " + mouseX + ", " + mouseY);
+  if (state == QUESTION) {
+    println(choicePos.size());
+    for (int i = 0; i < choicePos.size(); ++i) {
+      if (mouseY <= choicePos.get(i) + 22 && mouseY >= choicePos.get(i) - 22) {
+        println(question.checkAnswer(i));
+      }
+    }
+  }
 }
 
 void keyReleased() {
