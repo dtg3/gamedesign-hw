@@ -11,6 +11,17 @@
 	 	{"choice": "3"},
 	 	{"choice": "4"}
 	 ]
+	},
+	{
+	 "question": "What color is the sky?",
+	 "correct": "blue",
+	 "choices": 
+	 [
+	 	{"choice": "red"},
+	 	{"choice": "green"},
+	 	{"choice": "purple"},
+	 	{"choice": "blue"}
+	 ]
 	}
 ]
 }
