@@ -21,6 +21,8 @@ Question question;
 ArrayList<Integer> choicePos;
 boolean loadQuestion;
 
+int answer;
+
 void setup() {
   size(800, 600);
   importer = new FileImporter();
@@ -28,6 +30,7 @@ void setup() {
   state = START;
   sun = loadShape("sun.svg");
   loadQuestion = false;
+  answer = -1;
 }
 
 void draw() {
@@ -75,24 +78,68 @@ void draw() {
   }
   else if (state == INCORRECT) {
     // Discourage
+    println("INCORRECT");
+    textFont(QUESTION_FONT);       
+    textAlign(LEFT);
+    text(question.questionText, 60, 60);
+    fill(255);
+       
+    int yPos = 90;
+    char select = 'A';
+    for (int i = 0; i < question.choices.size(); ++i) {
+      yPos += 62;
+      textFont(CHOICES_FONT);
+      textAlign(LEFT);
+      if (i == answer)
+        fill(255,64,64);
+      else
+        fill(255);
+      text(select++ + ".)" + "   " + question.choices.get(i), 60, yPos);
+    }
   }
   else if (state == CORRECT) {
     // Encourage
+    println("CORRECT");
+    textFont(QUESTION_FONT);       
+    textAlign(LEFT);
+    text(question.questionText, 60, 60);
+    int yPos = 90;
+    char select = 'A';
+    for (int i = 0; i < question.choices.size(); ++i) {
+      yPos += 62;
+      textFont(CHOICES_FONT);
+      textAlign(LEFT);
+      if (i == answer)
+        fill(192,255,62);
+      else
+        fill(255);
+      text(select++ + ".)" + "   " + question.choices.get(i), 60, yPos);
+    }
   }
   else if (state == END) {
-    // Results screen
+    println("DONE");
+    fill(255);
   }
   else {
+    println("QUIT");
     exit();
   }
 }
 
 void mousePressed() {
   if (state == QUESTION) {
-    println(choicePos.size());
     for (int i = 0; i < choicePos.size(); ++i) {
       if (mouseY <= choicePos.get(i) + 22 && mouseY >= choicePos.get(i) - 22) {
+        answer = i;
         println(question.checkAnswer(i));
+        if(question.checkAnswer(i)) {
+          state = CORRECT;
+        }
+        else {
+          state = INCORRECT;
+        }
+        println(state);
+        break;
       }
     }
   }
@@ -115,8 +162,20 @@ void keyReleased() {
       question = importer.nextQuestion();
       checkDone();
       loadQuestion = true;
+      answer = -1;
     }
-    else if (key == ENTER && state == END) {  
+    else if (key == ENTER && state == INCORRECT) {
+      state = QUESTION;
+    }
+    else if (key == ENTER && state == CORRECT) {
+      state = QUESTION;
+      question = importer.nextQuestion();
+      checkDone();
+      loadQuestion = true;
+      answer = -1;
+    }
+    else if (key == ENTER && state == END) {
+      state = -1;  
     }
   }
 }
