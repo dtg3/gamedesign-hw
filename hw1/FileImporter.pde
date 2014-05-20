@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Arrays; 
 
 public class FileImporter {
-  //private final String filename = "data/question.dat";
   private final String filename = "data/questions.json";
   private ArrayList<Question> textData;
   private int numCorrect;
@@ -29,10 +28,10 @@ public class FileImporter {
         JSONObject choice = choices.getJSONObject(j); 
         q.addChoice(choice.getString("choice"));
       }   
+      q.shuffleChoices();
     }
     
     Collections.shuffle(textData);
-    textData.shuffleChoices();
     numCorrect = 0;
     currentQuestion = 0;
   }
