@@ -13,3 +13,7 @@ void mousePressed() {
   println("Mouse at: " + mouseX + ", " + mouseY);
 }
 
+void keyPressed() {
+  
+}
+
