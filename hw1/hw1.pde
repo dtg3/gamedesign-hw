@@ -11,7 +11,6 @@ final PFont TITLE_FONT = createFont("Arial", 32, true);
 final PFont QUESTION_FONT = createFont("Arial", 20, true);
 final PFont CHOICES_FONT = createFont("Arial", 16, true);
 
-
 // GLOBAL VARIABLES
 PImage background;
 PFont font;
@@ -82,11 +81,6 @@ void keyReleased() {
     if (key == ENTER && state == START) {
       state = QUESTION;
       question = importer.nextQuestion();
-      checkDone();
-    }
-    
-    if (key == 'a' && state == QUESTION) {
-      question = importer.nextQuestion(); 
       checkDone();
     }
   }
