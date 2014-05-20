@@ -37,7 +37,7 @@ public class FileImporter {
   }
   
   public Question nextQuestion() {
-    if (textData.size() <= currentQuestion)
+    if (textData.size() >= currentQuestion)
       return null;
     
     ++currentQuestion;
