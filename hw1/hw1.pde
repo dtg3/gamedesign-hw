@@ -19,6 +19,8 @@ int state;
 PShape sun;
 FileImporter importer; // holds questions
 Question question;
+//ArrayList<int> choicePos;
+boolean loadQuestion;
 
 void setup() {
   size(800, 600);
@@ -26,6 +28,7 @@ void setup() {
   background = loadImage("bg.jpg");
   state = START;
   sun = loadShape("sun.svg");
+  loadQuestion = false;
 }
 
 void draw() {
@@ -36,7 +39,8 @@ void draw() {
     textAlign(CENTER);
     text("Epic Happy Funtime Quiz!",width/2,100);
     fill(255);
-    shape(sun, width/2-300, height/2-325);
+    shape(sun, width/2-310, height/2-325);
+    text("PRESS ENTER", width/2, height - 20);
   }
   else if (state == QUESTION) {
     // write question
@@ -46,11 +50,13 @@ void draw() {
     fill(255);
     
     // write choices       
+    if (loadQuestion){}
+      //choicePos = new ArrayList<int>();
     int yPos = 90;
     char select = 'A';
     for (int i = 0; i < question.choices.size(); ++i) {
       yPos += 62;
-      if (mouseY >= yPos + 15 || mouseY <= yPos - 15) {
+      if (mouseY >= yPos + 22 || mouseY <= yPos - 22) {
         textFont(CHOICES_FONT);
         textAlign(LEFT);
         fill(255);    
@@ -61,14 +67,23 @@ void draw() {
         fill(255);    
       }
       text(select++ + ".)" + "   " + question.choices.get(i), 60, yPos);
-          
+      
+      if (loadQuestion){}
+        //choicePos.add(yPos);
     }
+    loadQuestion = false;
   }
   else if (state == ANSWER) {
+    // 
   }
   else if (state == INCORRECT) {
+    // Discourage
   }
   else if (state == CORRECT) {
+    // Encourage
+  }
+  else if (state == END) {
+    // Results screen
   }
   else {
     exit();
@@ -95,6 +110,9 @@ void keyReleased() {
       state = QUESTION;
       question = importer.nextQuestion();
       checkDone();
+      loadQuestion = true;
+    }
+    else if (key == ENTER && state == END) {  
     }
   }
 }
