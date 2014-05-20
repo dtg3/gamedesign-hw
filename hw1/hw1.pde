@@ -2,8 +2,14 @@ FileImporter importer;
 
 void setup() {
   importer = new FileImporter();
+  size(800, 600);
 }
 
 void draw() {
-  text(importer.test(), 10, 10);
+  
 }
+
+void mousePressed() {
+  println("Mouse at: " + mouseX + ", " + mouseY);
+}
+
