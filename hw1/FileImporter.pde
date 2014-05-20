@@ -32,7 +32,16 @@ public class FileImporter {
     }
     
     Collections.shuffle(textData);
+    textData.shuffleChoices();
     numCorrect = 0;
     currentQuestion = 0;
+  }
+  
+  public Question nextQuestion() {
+    if (textData.size() <= currentQuestion)
+      return null;
+    
+    ++currentQuestion;
+    return textData.get(currentQuestion - 1); 
   } 
 } 

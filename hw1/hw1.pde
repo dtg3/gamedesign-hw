@@ -1,11 +1,21 @@
 FileImporter importer;
 
+PFont font;
+boolean answered;
+
 void setup() {
-  importer = new FileImporter();
   size(800, 600);
+  importer = new FileImporter();
+  answered = true;
+  font = createFont("Arial", 16, true);
 }
 
 void draw() {
+  background(255);
+  
+  if (answered) {
+      
+  }
 }
 
 void mousePressed() {
@@ -15,6 +25,9 @@ void mousePressed() {
 void keyPressed() {
   // Check for special keys (UP, DOWN, etc.)
   if (key == CODED) {
+    if (keyCode == SPACE) {
+      
+    }
   }
   // Regular keys
   else {
