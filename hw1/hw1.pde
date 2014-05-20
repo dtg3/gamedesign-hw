@@ -1,10 +1,9 @@
 // GAME STATES
 final int START = 0;
 final int QUESTION = 1;
-final int ANSWER = 2;
-final int INCORRECT = 3;
-final int CORRECT = 4;
-final int END = 5;
+final int INCORRECT = 2;
+final int CORRECT = 3;
+final int END = 4;
 
 // TITLE FONT
 final PFont TITLE_FONT = createFont("OpenSans-ExtraBold", 52, true);
@@ -73,9 +72,6 @@ void draw() {
         choicePos.add(yPos);
     }
     loadQuestion = false;
-  }
-  else if (state == ANSWER) {
-    // 
   }
   else if (state == INCORRECT) {
     // Discourage
