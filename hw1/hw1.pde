@@ -39,8 +39,8 @@ void draw() {
     //title screen
     textFont(TITLE_FONT);       
     textAlign(CENTER);
-    text("Epic Happy Funtime Quiz!",width/2,100);
     fill(255);
+    text("Epic Happy Funtime Quiz!",width/2,100);
     shape(sun, width/2-310, height/2-325);
     text("PRESS ENTER", width/2, height - 20);
   }
@@ -48,8 +48,8 @@ void draw() {
     // write question
     textFont(QUESTION_FONT);       
     textAlign(LEFT);
-    text(question.questionText, 60, 60);
     fill(255);
+    text(question.questionText, 60, 60);
     
     // write choices       
     if (loadQuestion)
@@ -81,43 +81,64 @@ void draw() {
     println("INCORRECT");
     textFont(QUESTION_FONT);       
     textAlign(LEFT);
+    fill(255,64,64);
     text(question.questionText, 60, 60);
-    fill(255);
-       
+    
     int yPos = 90;
     char select = 'A';
     for (int i = 0; i < question.choices.size(); ++i) {
       yPos += 62;
-      textFont(CHOICES_FONT);
       textAlign(LEFT);
-      if (i == answer)
+      if (i == answer) {
         fill(255,64,64);
-      else
+        textFont(CHOICES_BOLD_FONT);
+      }
+      else {
         fill(255);
+        textFont(CHOICES_FONT);
+      }
       text(select++ + ".)" + "   " + question.choices.get(i), 60, yPos);
     }
+    
+    textFont(TITLE_FONT);       
+    textAlign(CENTER);
+    fill(255,64,64);
+    text("Oops, Try Again!", width/2, height - 80);
+    text("Press Enter", width/2, height - 20);
   }
   else if (state == CORRECT) {
     // Encourage
     println("CORRECT");
     textFont(QUESTION_FONT);       
     textAlign(LEFT);
+    fill(192,255,62);
     text(question.questionText, 60, 60);
+    
     int yPos = 90;
     char select = 'A';
     for (int i = 0; i < question.choices.size(); ++i) {
       yPos += 62;
-      textFont(CHOICES_FONT);
       textAlign(LEFT);
-      if (i == answer)
+      if (i == answer) {
         fill(192,255,62);
-      else
+        textFont(CHOICES_BOLD_FONT);
+      }
+      else {
         fill(255);
+        textFont(CHOICES_FONT);
+      }
       text(select++ + ".)" + "   " + question.choices.get(i), 60, yPos);
     }
+    textFont(TITLE_FONT);       
+    textAlign(CENTER);
+    fill(192,255,62);
+    text("Good Job!", width/2, height - 80);
+    text("Press Enter", width/2, height - 20);
   }
   else if (state == END) {
     println("DONE");
+    text("YOU WIN!", width/2, height - 80);
+    text("Press Enter", width/2, height - 20);
     fill(255);
   }
   else {
