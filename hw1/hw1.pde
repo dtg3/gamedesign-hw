@@ -13,6 +13,7 @@ final PFont CHOICES_FONT = createFont("Arial", 16, true);
 
 
 // GLOBAL VARIABLES
+PImage background;
 PFont font;
 int state;
 FileImporter importer; // holds questions
@@ -21,11 +22,12 @@ Question question;
 void setup() {
   size(800, 600);
   importer = new FileImporter();
+  background = loadImage("bg.jpg");
   state = START;
 }
 
 void draw() {
-  background(255);
+  background(background);
   if (state == START) {
     //title screen
     textFont(TITLE_FONT);       
