@@ -7,9 +7,10 @@ final int CORRECT = 4;
 final int END = 5;
 
 // TITLE FONT
-final PFont TITLE_FONT = createFont("Arial", 32, true);
-final PFont QUESTION_FONT = createFont("Arial", 20, true);
-final PFont CHOICES_FONT = createFont("Arial", 16, true);
+final PFont TITLE_FONT = createFont("OpenSans-ExtraBold", 52, true);
+final PFont QUESTION_FONT = createFont("OpenSans-Bold", 42, true);
+final PFont CHOICES_FONT = createFont("OpenSans-Regular", 32, true);
+final PFont CHOICES_BOLD_FONT = createFont("OpenSans-Bold", 42, true);
 
 // GLOBAL VARIABLES
 PImage background;
@@ -37,18 +38,27 @@ void draw() {
   else if (state == QUESTION) {
     // write question
     textFont(QUESTION_FONT);       
-    textAlign(CENTER);
-    text(question.questionText,width/2,60);
+    textAlign(LEFT);
+    text(question.questionText, 60, 60);
     fill(255);
     
-    // write choices
-    textFont(QUESTION_FONT);       
-    textAlign(CENTER);
-    fill(255);
-    int yPos = 60;
+    // write choices       
+    int yPos = 90;
+    char select = 'A';
     for (int i = 0; i < question.choices.size(); ++i) {
-      yPos += 40;
-      text(question.choices.get(i),width/2,yPos);    
+      yPos += 62;
+      if (mouseY >= yPos + 15 || mouseY <= yPos - 15) {
+        textFont(CHOICES_FONT);
+        textAlign(LEFT);
+        fill(255);    
+      }
+      else {
+        textFont(CHOICES_BOLD_FONT);
+        textAlign(LEFT);
+        fill(255);    
+      }
+      text(select++ + ".)" + "   " + question.choices.get(i), 60, yPos);
+          
     }
   }
   else if (state == ANSWER) {
