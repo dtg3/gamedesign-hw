@@ -30,21 +30,21 @@ void draw() {
   if (state == START) {
     //title screen
     textFont(TITLE_FONT);       
-    fill(0);
     textAlign(CENTER);
     text("Epic Happy Funtime Quiz!",width/2,60);
+    fill(255);
   }
   else if (state == QUESTION) {
     // write question
     textFont(QUESTION_FONT);       
-    fill(0);
     textAlign(CENTER);
     text(question.questionText,width/2,60);
+    fill(255);
     
     // write choices
     textFont(QUESTION_FONT);       
-    fill(0);
     textAlign(CENTER);
+    fill(255);
     int yPos = 60;
     for (int i = 0; i < question.choices.size(); ++i) {
       yPos += 40;
