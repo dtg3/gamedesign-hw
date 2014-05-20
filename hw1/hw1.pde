@@ -7,12 +7,16 @@ final int CORRECT = 4;
 final int END = 5;
 
 // TITLE FONT
-final PFont TITLE = createFont("Arial", 32, true);
+final PFont TITLE_FONT = createFont("Arial", 32, true);
+final PFont QUESTION_FONT = createFont("Arial", 20, true);
+final PFont CHOICES_FONT = createFont("Arial", 16, true);
+
 
 // GLOBAL VARIABLES
 PFont font;
 int state;
 FileImporter importer; // holds questions
+Question question;
 
 void setup() {
   size(800, 600);
@@ -24,7 +28,7 @@ void draw() {
   background(255);
   if (state == START) {
     //title screen
-    textFont(TITLE);       
+    textFont(TITLE_FONT);       
     fill(0);
     textAlign(CENTER);
     text("Epic Happy Funtime Quiz!",width/2,60);
@@ -55,9 +59,12 @@ void keyReleased() {
   // Regular keys
   else {
     println("ASCII KEY");
-    if (key == ESC) {
+    if (key == ESC)
       state = END;
-    }
+      
+    if (key == ENTER && state == START)
+      state = QUESTION;
+      question = importer.nextQuestion();
   }
 }
 
