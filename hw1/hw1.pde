@@ -77,9 +77,10 @@ void keyReleased() {
     if (key == ESC)
       state = END;
       
-    if (key == ENTER && state == START)
+    if (key == ENTER && state == START) {
       state = QUESTION;
       question = importer.nextQuestion();
+    }
   }
 }
 
