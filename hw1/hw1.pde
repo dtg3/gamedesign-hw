@@ -34,6 +34,21 @@ void draw() {
     text("Epic Happy Funtime Quiz!",width/2,60);
   }
   else if (state == QUESTION) {
+    // write question
+    textFont(QUESTION_FONT);       
+    fill(0);
+    textAlign(CENTER);
+    text(question.questionText,width/2,60);
+    
+    // write choices
+    textFont(QUESTION_FONT);       
+    fill(0);
+    textAlign(CENTER);
+    int yPos = 60;
+    for (int i = 0; i < question.choices.size(); ++i) {
+      yPos += 40;
+      text(question.choices.get(i),width/2,yPos);    
+    }
   }
   else if (state == ANSWER) {
   }

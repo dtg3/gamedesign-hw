@@ -29,6 +29,7 @@ public class FileImporter {
         q.addChoice(choice.getString("choice"));
       }   
       q.shuffleChoices();
+      textData.add(q);
     }
     
     Collections.shuffle(textData);
@@ -37,10 +38,10 @@ public class FileImporter {
   }
   
   public Question nextQuestion() {
-    if (textData.size() >= currentQuestion)
+    if (textData.size() <= currentQuestion)
       return null;
     
     ++currentQuestion;
-    return textData.get(currentQuestion - 1); 
+    return textData.get(currentQuestion - 1);
   } 
 } 
