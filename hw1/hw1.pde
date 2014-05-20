@@ -82,7 +82,17 @@ void keyReleased() {
     if (key == ENTER && state == START) {
       state = QUESTION;
       question = importer.nextQuestion();
+      checkDone();
+    }
+    
+    if (key == 'a' && state == QUESTION) {
+      question = importer.nextQuestion(); 
+      checkDone();
     }
   }
 }
 
+void checkDone() {
+  if (question == null)
+    state = END;
+} 
