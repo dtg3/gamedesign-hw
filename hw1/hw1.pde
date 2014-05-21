@@ -1,11 +1,16 @@
 /*
   Game Design Homework 1 - Quiz
+  Art: Michael Schwartz
+  Programming: Drew Guarnera
   Music from http://freemusicarchive.org/genre/Pop/
-  Artist Josh: Woodward
-  Song: Good to Go (Instrumental) 
+    Artist Josh: Woodward
+    Song: Good to Go (Instrumental) 
 */
 import ddf.minim.*;
 AudioPlayer player;
+//AudioPlayer right;
+//AudioPlayer wrong;
+//AudioPlayer over;
 Minim minim;
 
 // GAME STATES
