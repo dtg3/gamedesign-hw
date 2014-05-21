@@ -1,7 +1,12 @@
+/*
+  Game Design Homework 1 - Quiz
+  Music from http://freemusicarchive.org/genre/Pop/
+  Artist Josh: Woodward
+  Song: Good to Go (Instrumental) 
+*/
 import ddf.minim.*;
 AudioPlayer player;
 Minim minim;
-
 
 // GAME STATES
 final int START = 0;
