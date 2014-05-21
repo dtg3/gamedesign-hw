@@ -164,9 +164,9 @@ void draw() {
   }
   else if (state == END) {
     println("DONE");
+    fill(255);   
     text("YOU WIN!", width/2, height - 80);
     text("Press Enter", width/2, height - 20);
-    fill(255);
   }
   else {
     player.close();
