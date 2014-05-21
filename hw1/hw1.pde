@@ -1,3 +1,8 @@
+import ddf.minim.*;
+AudioPlayer player;
+Minim minim;
+
+
 // GAME STATES
 final int START = 0;
 final int QUESTION = 1;
@@ -31,6 +36,10 @@ void setup() {
   sun = loadShape("sun.svg");
   loadQuestion = false;
   answer = -1;
+  
+  minim = new Minim(this);
+  player = minim.loadFile("bg.mp3", 2048);
+  player.loop();
 }
 
 void draw() {
@@ -142,6 +151,9 @@ void draw() {
     fill(255);
   }
   else {
+    player.close();
+    minim.stop();
+    super.stop();
     println("QUIT");
     exit();
   }
