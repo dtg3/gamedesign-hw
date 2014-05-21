@@ -26,11 +26,11 @@ final PFont QUESTION_FONT = createFont("OpenSans-Bold", 42, true);
 final PFont CHOICES_FONT = createFont("OpenSans-Regular", 32, true);
 final PFont CHOICES_BOLD_FONT = createFont("OpenSans-Bold", 42, true);
 
-// GLOBAL VARIABLES
+// GLOBAL VARIABLES 
 PImage background;
 PFont font;
 int state;
-PShape sun;
+PShape sun_happy;
 FileImporter importer; // holds questions
 Question question;
 ArrayList<Integer> choicePos;
@@ -43,7 +43,7 @@ void setup() {
   importer = new FileImporter();
   background = loadImage("bgf.jpg");
   state = START;
-  sun = loadShape("sun.svg");
+  sun_happy = loadShape("sun_happy.svg");
   loadQuestion = false;
   answer = -1;
   
@@ -60,7 +60,7 @@ void draw() {
     textAlign(CENTER);
     fill(255);
     text("Epic Happy Funtime Quiz!",width/2,100);
-    shape(sun, width/2-310, height/2-325);
+    shape(sun_happy, width/2-310, height/2-325);
     text("PRESS ENTER", width/2, height - 20);
   }
   else if (state == QUESTION) {
