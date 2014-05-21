@@ -151,6 +151,7 @@ void draw() {
     fill(192,255,62);
     text("Good Job!", width/2, height - 80);
     text("Press Enter", width/2, height - 20);
+    shape(sun_happy, width/2, height/2-400);
   }
   else if (state == END) {
     println("DONE");
