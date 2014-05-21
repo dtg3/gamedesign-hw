@@ -28,6 +28,7 @@ PImage background;
 PShape sun_happy;
 PShape sun_question;
 PShape sun_surprised;
+PShape winner;
 
 // Audio
 AudioPlayer player;
@@ -49,6 +50,7 @@ void setup() {
   sun_happy = loadShape("sun_happy.svg");
   sun_question = loadShape("sun_question.svg");
   sun_surprised = loadShape("sun_surprised.svg");
+  winner = loadShape("winner.svg");
   loadQuestion = false;
   answer = -1;
   
@@ -165,8 +167,8 @@ void draw() {
   else if (state == END) {
     println("DONE");
     fill(255);   
-    text("YOU WIN!", width/2, height - 80);
-    text("Press Enter", width/2, height - 20);
+    shape(winner, width/2-430, height/2-325);
+    text("PRESS ENTER", width/2, height - 20);
   }
   else {
     player.close();
