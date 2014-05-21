@@ -167,7 +167,7 @@ void draw() {
   else if (state == END) {
     println("DONE");
     fill(255);   
-    shape(winner, width/2-430, height/2-325);
+    shape(winner, width/2-400, height/2-325);
     text("PRESS ENTER", width/2, height - 20);
   }
   else {
