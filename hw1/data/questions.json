@@ -13,6 +13,18 @@
 	 ]
 	},
 	{
+	 "question": "Who is a big red dog?",
+	 "correct": "Clifford",
+	 "choices": 
+	 [
+	 	{"choice": "SpongeBob"},
+	 	{"choice": "Elmo"},
+	 	{"choice": "Clifford"},
+	 	{"choice": "Donald"},
+	 	{"choice": "Mickey"}
+	 ]
+	},
+	{
 	 "question": "What color is the sky?",
 	 "correct": "blue",
 	 "choices": 
