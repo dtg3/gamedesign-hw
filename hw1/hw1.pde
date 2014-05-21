@@ -27,6 +27,7 @@ final PFont CHOICES_BOLD_FONT = createFont("OpenSans-Bold", 42, true);
 PImage background;
 PShape sun_happy;
 PShape sun_question;
+PShape sun_surprised;
 
 // Audio
 AudioPlayer player;
@@ -47,6 +48,7 @@ void setup() {
   state = START;
   sun_happy = loadShape("sun_happy.svg");
   sun_question = loadShape("sun_question.svg");
+  sun_surprised = loadShape("sun_surprised.svg");
   loadQuestion = false;
   answer = -1;
   
@@ -128,6 +130,7 @@ void draw() {
     fill(255,64,64);
     text("Oops, Try Again!", width/2, height - 80);
     text("Press Enter", width/2, height - 20);
+    shape(sun_surprised, width/2-150, height/2-385);
   }
   else if (state == CORRECT) {
     // Encourage
