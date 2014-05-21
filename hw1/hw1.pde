@@ -29,6 +29,7 @@ PImage background;
 PFont font;
 int state;
 PShape sun_happy;
+PShape sun_question;
 FileImporter importer; // holds questions
 Question question;
 ArrayList<Integer> choicePos;
@@ -42,6 +43,7 @@ void setup() {
   background = loadImage("bgf.jpg");
   state = START;
   sun_happy = loadShape("sun_happy.svg");
+  sun_question = loadShape("sun_question.svg");
   loadQuestion = false;
   answer = -1;
   
@@ -92,6 +94,7 @@ void draw() {
         choicePos.add(yPos);
     }
     loadQuestion = false;
+    shape(sun_question, width/2-150, height/2-385);
   }
   else if (state == INCORRECT) {
     // Discourage
@@ -151,7 +154,7 @@ void draw() {
     fill(192,255,62);
     text("Good Job!", width/2, height - 80);
     text("Press Enter", width/2, height - 20);
-    shape(sun_happy, width/2, height/2-400);
+    shape(sun_happy, width/2-150, height/2-385);
   }
   else if (state == END) {
     println("DONE");
