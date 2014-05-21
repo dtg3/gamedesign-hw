@@ -6,11 +6,9 @@
     Artist Josh: Woodward
     Song: Good to Go (Instrumental) 
 */
+
 import ddf.minim.*;
 AudioPlayer player;
-//AudioPlayer right;
-//AudioPlayer wrong;
-//AudioPlayer over;
 Minim minim;
 
 // GAME STATES
