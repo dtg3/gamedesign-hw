@@ -8,8 +8,6 @@
 */
 
 import ddf.minim.*;
-AudioPlayer player;
-Minim minim;
 
 // GAME STATES
 final int START = 0;
@@ -25,17 +23,22 @@ final PFont CHOICES_FONT = createFont("OpenSans-Regular", 32, true);
 final PFont CHOICES_BOLD_FONT = createFont("OpenSans-Bold", 42, true);
 
 // GLOBAL VARIABLES 
+// Images
 PImage background;
-PFont font;
-int state;
 PShape sun_happy;
 PShape sun_question;
+
+// Audio
+AudioPlayer player;
+Minim minim;
+
+// Data and state
 FileImporter importer; // holds questions
 Question question;
 ArrayList<Integer> choicePos;
-boolean loadQuestion;
-
 int answer;
+int state;
+boolean loadQuestion;
 
 void setup() {
   size(800, 600);
